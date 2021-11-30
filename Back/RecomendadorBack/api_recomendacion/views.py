@@ -5,9 +5,12 @@ from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
 from api_recomendacion.Recomendador import CargarDataSet
-from api_recomendacion.models import UsuariosSr, Calificaciones
+
 from django.urls import reverse
 import json
+
+from api_recomendacion.models import UsuariosSr, Calificaciones
+
 
 class UsuarioView(View):
     @method_decorator(csrf_exempt)
@@ -73,7 +76,6 @@ class UsuarioView(View):
 
 
 class PeliculasView(View):
-
     def get(self,request):
         datos=CargarDataSet.cargarDatos()
         response = {'message': datos}
@@ -81,11 +83,11 @@ class PeliculasView(View):
 
 
 class CalifacionView(View):
-    def get(self, request, cod_calificacion=0):
-        if (cod_calificacion == 0):
+    def get(self, request, cod_usuario=0):
+      #buscar por codigo de calificacion
+        if (cod_usuario == 0):
             calificacion = list(Calificaciones.objects.values())
             if (len(calificacion) > 0):
-
                 response = {'Calificación': calificacion,
                             'message': 'Success'}
             else:
@@ -93,7 +95,7 @@ class CalifacionView(View):
                     'message': 'No hay calificaciones'}
             return JsonResponse(response)
         else:
-            cali = list(Calificaciones.objects.filter(cod_calificacion=cod_calificacion).values())
+            cali = list(Calificaciones.objects.filter(cod_usuario=cod_usuario).values())
             if (len(cali) > 0):
                 response = {'Calificación': cali,
                             'message': 'Success'}
