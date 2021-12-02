@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="76c1a863-4318-4506-bfad-2a739db6b08d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/front-sistemas-recomendacion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/front-sistemas-recomendacion.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/RecomendadorBack/api_recomendacion/Recomendador/CargarDataSet.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back/RecomendadorBack/api_recomendacion/Recomendador/CargarDataSet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/RecomendadorBack/api_recomendacion/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back/RecomendadorBack/api_recomendacion/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Back/RecomendadorBack/api_recomendacion/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Back/RecomendadorBack/api_recomendacion/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="76c1a863-4318-4506-bfad-2a739db6b08d" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,14 +16,31 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Back/RecomendadorBack" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/app/core" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="ts.external.directory.path" value="D:\Proyectos\Angular\sistemas_recomendacion_bigdata_ueb\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Proyectos\Angular\sistemas_recomendacion_bigdata_ueb\src\app\core" />
+      <recent name="D:\Proyectos\Angular\sistemas_recomendacion_bigdata_ueb\src\app\auth" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Proyectos\Angular\sistemas_recomendacion_bigdata_ueb\src\app\auth" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -40,24 +51,12 @@
       <option name="presentableId" value="Default" />
       <updated>1637967685317</updated>
       <workItem from="1637967687036" duration="1347000" />
-      <workItem from="1638203155409" duration="2162000" />
-      <workItem from="1638205599037" duration="1155000" />
+      <workItem from="1637991657109" duration="1503000" />
+      <workItem from="1638113450291" duration="2388000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
