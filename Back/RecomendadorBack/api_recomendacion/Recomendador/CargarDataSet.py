@@ -13,8 +13,27 @@ def cargarDatos():
   f = open("api_recomendacion/Recomendador/datosJuegos.json", "r")
   content = f.read()
   jsondecoded = json.loads(content)
-
   return jsondecoded
+
+
+def devolverInformacionRecomendacion(juegos):
+  file = "api_recomendacion/Recomendador/datosJuegosFinal.csv"
+  df = pd.read_csv(file, sep=',', error_bad_lines=False, index_col=0)
+  jsonArray = []
+  jsonFilePath = 'api_recomendacion/Recomendador/datosJuegos.json'
+  for x in juegos:
+    jsonArray.append(df.iloc[x[0],0])
+
+  with open(jsonFilePath, 'w', encoding='utf-8') as jsonf:
+    jsonString = json.dumps(jsonArray, indent=4)
+    jsonf.write(jsonString)
+
+  f = open("api_recomendacion/Recomendador/datosJuegos.json", "r")
+  content = f.read()
+  jsondecoded = json.loads(content)
+  return jsondecoded
+
+
 
 def csv_to_json(file):
   jsonArray = []
