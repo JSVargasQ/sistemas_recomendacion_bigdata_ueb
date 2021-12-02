@@ -73,8 +73,6 @@ class UsuarioView(View):
             response = {'status': 'No existe ese usuario'}
         return JsonResponse(response)
 
-
-
 class PeliculasView(View):
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
@@ -86,9 +84,15 @@ class PeliculasView(View):
 
     def post(self, request):
       jd = json.loads(request.body)
-      nomPelicula = jd['Name']
-      rta = BasadoContenido.generarRecomendacion(nomPelicula)
-      return JsonResponse(rta)
+      nombresJuegos = jd['juegos']
+      array = []
+      for i in nombresJuegos:
+        array.append(i)
+      rta = BasadoContenido.generarRecomendacion(array)
+      js = CargarDataSet.devolverInformacionRecomendacion(rta)
+
+
+      return JsonResponse(js)
 
 class CalifacionView(View):
     @method_decorator(csrf_exempt)
