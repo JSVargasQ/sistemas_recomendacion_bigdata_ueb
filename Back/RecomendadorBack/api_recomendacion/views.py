@@ -4,7 +4,7 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
-from api_recomendacion.Recomendador import CargarDataSet, BasadoContenido
+from api_recomendacion.Recomendador import CargarDataSet, BasadoContenido, FiltradoColaborativoUU
 
 from django.urls import reverse
 import json
@@ -93,6 +93,18 @@ class PeliculasView(View):
 
 
       return JsonResponse(js)
+
+class calificacionesBDView(View):
+  @method_decorator(csrf_exempt)
+  def dispatch(self, request, *args, **kwargs):
+    return super().dispatch(request, *args, **kwargs)
+
+  def get(self, request):
+    FiltradoColaborativoUU.descargarBdCalificaciones()
+    response = {'message': 'sucess'}
+    return JsonResponse(response)
+
+
 
 class CalifacionView(View):
     @method_decorator(csrf_exempt)
