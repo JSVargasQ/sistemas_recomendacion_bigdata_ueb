@@ -4,7 +4,7 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 
-from api_recomendacion.Recomendador import CargarDataSet
+from api_recomendacion.Recomendador import CargarDataSet, BasadoContenido
 
 from django.urls import reverse
 import json
@@ -80,6 +80,12 @@ class PeliculasView(View):
         datos=CargarDataSet.cargarDatos()
         response = {'message': datos}
         return JsonResponse(response)
+
+    def post(self, request):
+      jd = json.loads(request.body)
+      nomPelicula = jd['Name']
+      rta = BasadoContenido.generarRecomendacion(nomPelicula)
+      return JsonResponse(rta)
 
 
 class CalifacionView(View):

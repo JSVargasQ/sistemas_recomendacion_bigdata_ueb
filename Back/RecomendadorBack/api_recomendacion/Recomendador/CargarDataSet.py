@@ -4,9 +4,9 @@ import json
 
 
 def cargarDatos():
-  file = "api_recomendacion/Recomendador/datosJuegos.csv"
-  df = pd.read_csv(file,sep=',', error_bad_lines=False, index_col=0)
-  c =df.to_csv('api_recomendacion/Recomendador/datosJuegos.csv')
+  file = "api_recomendacion/Recomendador/DatasetFinal.csv"
+  df = pd.read_csv(file,sep=';', error_bad_lines=False, index_col=0)
+  c =df.to_csv('api_recomendacion/Recomendador/datosJuegosFinal.csv')
   c = df.sample(10)
   c.to_csv('api_recomendacion/Recomendador/datosJuegosNuevos.csv')
   csv_to_json('api_recomendacion/Recomendador/datosJuegosNuevos.csv')
