@@ -76,6 +76,9 @@ class UsuarioView(View):
 
 
 class PeliculasView(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
     def get(self,request):
         datos=CargarDataSet.cargarDatos()
         response = {'message': datos}
@@ -83,6 +86,9 @@ class PeliculasView(View):
 
 
 class CalifacionView(View):
+    @method_decorator(csrf_exempt)
+    def dispatch(self, request, *args, **kwargs):
+        return super().dispatch(request, *args, **kwargs)
     def get(self, request, cod_usuario=0):
       #buscar por codigo de calificacion
         if (cod_usuario == 0):
@@ -106,7 +112,7 @@ class CalifacionView(View):
 
     def post(self, request):
         jd = json.loads(request.body)
-        calificacion = Calificaciones.object.create(
+        calificacion = Calificaciones.objects.create(
             cod_usuario=jd['cod_usuario'],
             cod_videojuego=jd['cod_videojuego'],
             puntuacion=jd['puntuacion']
