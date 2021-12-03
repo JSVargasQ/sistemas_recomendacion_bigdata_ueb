@@ -157,6 +157,7 @@ class CalifacionView(View):
             for f in calificacion:
               nom = cs[cs['Num'] == f.cod_videojuego]['Name']
               nom = nom.to_json()
+
               dic.append({'cod_videojuego':f.cod_videojuego, 'puntuacion':f.puntuacion, 'nombre': nom})
 
             j = json.dumps(dic)
