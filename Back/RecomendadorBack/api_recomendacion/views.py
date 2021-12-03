@@ -6,10 +6,13 @@ from django.views.decorators.csrf import csrf_exempt
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import api_recomendacion.Recomendador.calificacionValidacion   as caliUtil
 from api_recomendacion.Recomendador import CargarDataSet, BasadoContenido, FiltradoColaborativoUU, DatasetUtil
 
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 =======
@@ -20,6 +23,9 @@ from  api_recomendacion.Recomendador.ContenteBased2 import ContentBaseRecommende
 from api_recomendacion.modelsDTO.models import CalificacionesDTO
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
@@ -121,6 +127,7 @@ class PeliculasView(View):
         clase.agregarGustan(calificaciones.cod_videojuego)
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
       #se ejecuta el recomendador por contenido del usuario de acuerdo a lo que le gusta y lo que no le gusta
       #print(clase.recomendarTotalidadJuegos())
@@ -129,12 +136,17 @@ class PeliculasView(View):
 =======
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 
       #se ejecuta el recomendador por contenido del usuario de acuerdo a lo que le gusta y lo que no le gusta
       #print(clase.recomendarTotalidadJuegos())
 
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
