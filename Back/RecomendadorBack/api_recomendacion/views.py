@@ -9,6 +9,7 @@ from api_recomendacion.Recomendador import CargarDataSet, FiltradoColaborativoUU
 import api_recomendacion.Recomendador.calificacionUtilRepo   as caliUtil2
 from api_recomendacion.Recomendador import CargarDataSet, FiltradoColaborativoUU
 from  api_recomendacion.Recomendador.ContenteBased2 import ContentBaseRecommender
+from api_recomendacion.Respository import GeneralRepository
 from api_recomendacion.modelsDTO.models import CalificacionesDTO
 
 from django.urls import reverse
@@ -153,8 +154,11 @@ class CalifacionView(View):
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):
         return super().dispatch(request, *args, **kwargs)
+
+
     def get(self, request, cod_usuario=0):
       #buscar por codigo de calificacion
+<<<<<<< Updated upstream
         if (cod_usuario == 0):
             calificacion = list(Calificaciones.objects.values())
             if (len(calificacion) > 0):
@@ -178,6 +182,12 @@ class CalifacionView(View):
             response = {'Calificación': j,
                         'message': 'Success'}
             return JsonResponse(response)
+=======
+      codigos=caliUtil2.devolverCodigosGusto(cod_usuario)
+      responder=GeneralRepository.devolverJuegosDict(codigos)
+      return JsonResponse({"message":responder})
+
+>>>>>>> Stashed changes
 
     def post(self, request):
         jd = json.loads(request.body)

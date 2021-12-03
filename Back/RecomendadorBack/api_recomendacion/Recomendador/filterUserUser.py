@@ -33,5 +33,6 @@ class RecommendationUserUser:
   def predecirJuegosPorUsuario(self):
     self.pearsonCorrelation()
     self.neighborMethod()
-    prediccionPelicula = self.df.apply(lambda ratings: self.calcularRecomendacionUser(self.neighbor[ratings.name], self.df_corr[ratings.name][self.neighbor[ratings.name]], self.df))
-    return prediccionPelicula[self.user_id].sort_values(ascending=False)[:10]
+    prediccionVideoJuego = self.df.apply(lambda ratings: self.calcularRecomendacionUser(self.neighbor[ratings.name], self.df_corr[ratings.name][self.neighbor[ratings.name]], self.df))
+    print(prediccionVideoJuego[prediccionVideoJuego > -1])
+    return (prediccionVideoJuego[self.user_id].sort_values(ascending=False)[:10].to_dict())

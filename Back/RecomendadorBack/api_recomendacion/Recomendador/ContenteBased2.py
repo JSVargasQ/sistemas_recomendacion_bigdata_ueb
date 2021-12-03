@@ -46,10 +46,15 @@ class ContentBaseRecommender:
 #    return self.df.iloc[index_games].to_json(orient='records')
 
   def devolverJuegosDict(self,index_games):
+    if(len(index_games)<1):
+      return ("Por el momento no hay mas videojuegos, pronto añadiremos mas")
     self.df['Num'] = self.df['referencia'].astype(str)
     self.df = self.df.drop('referencia', axis=1)
-    return self.df.iloc[index_games].to_dict('r')
+    devolver=self.df.iloc[index_games]
+    if(len(devolver.index)>16):
+      return self.df.iloc[index_games].sample(16).to_dict('r')
 
+    return self.df.iloc[index_games].to_dict('r')
   def mappingAndSimilarity(self):
     global mapping,dfm,similarity_matrix,overview_matrix,tfidf
     tfidf = TfidfVectorizer(stop_words="english")
