@@ -16,7 +16,6 @@ def descargarBdCalificaciones():
     myFile = ('api_recomendacion/Recomendador/datosBD.csv')
     #df = pd.DataFrame(calificacion)
     #df.to_csv(myFile)
-
   leerCsv()
 
   data = ''
@@ -31,9 +30,13 @@ def leerCsv():
   vecinos = df_corr.apply(lambda col: vecinosCercanos(col))
 
   prediccionPelicula = data.apply(
-    lambda ratings: calcularRecomendacionUser(vecinos[ratings.name], df_corr[ratings.name][vecinos[ratings.name]],
+    lambda ratings: calcularRecomendacionUser(vecinos[ratings.name],
+                                              df_corr[ratings.name][vecinos[ratings.name]],
                                               data))
-  print(prediccionPelicula['1'].sort_values(ascending=False).head(4))
+
+  print(prediccionPelicula['1'].sort_values(ascending=False).head(2))
+
+
 
 def vecinosCercanos(corrUser, k=5):
   return corrUser[corrUser.index != corrUser.name].nlargest(n=k).index.tolist()

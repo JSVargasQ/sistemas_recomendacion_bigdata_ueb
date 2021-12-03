@@ -15,10 +15,10 @@ def cargarDatos():
   jsondecoded = json.loads(content)
   return jsondecoded
 
-#ES UN ARREGLO PARAMETRO
+
 def devolverInformacionRecomendacion(juegos):
   file = "api_recomendacion/Recomendador/datosJuegosFinal.csv"
-  df = pd.read_csv(file, sep=',', error_bad_lines=False, index_col=0)
+  df = pd.read_csv(file, sep=',', error_bad_lines=False)
   jsonArray = []
   jsonFilePath = 'api_recomendacion/Recomendador/datosJuegos.json'
   for x in juegos:
