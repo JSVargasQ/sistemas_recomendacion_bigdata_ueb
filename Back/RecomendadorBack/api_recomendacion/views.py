@@ -4,7 +4,7 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 import api_recomendacion.Recomendador.calificacionValidacion   as caliUtil
-from api_recomendacion.Recomendador import CargarDataSet, BasadoContenido, FiltradoColaborativoUU
+from api_recomendacion.Recomendador import CargarDataSet, BasadoContenido, FiltradoColaborativoUU, DatasetUtil
 
 from django.urls import reverse
 import json
@@ -151,13 +151,17 @@ class CalifacionView(View):
                     'message': 'No hay calificaciones'}
             return JsonResponse(response)
         else:
-            cali = list(Calificaciones.objects.filter(cod_usuario=cod_usuario).values())
-            if (len(cali) > 0):
-                response = {'Calificación': cali,
-                            'message': 'Success'}
-            else:
-                response = {
-                    'message': 'No hay calificaciones'}
+            calificacion = caliUtil.calificacionBuenasXusuario(cod_usuario)
+            dic=[]
+            cs = DatasetUtil.getPandasDataFrame()
+            for f in calificacion:
+              nom = cs[cs['Num'] == f.cod_videojuego]['Name']
+              nom = nom.to_json()
+              dic.append({'cod_videojuego':f.cod_videojuego, 'puntuacion':f.puntuacion, 'nombre': nom})
+
+            j = json.dumps(dic)
+            response = {'Calificación': j,
+                        'message': 'Success'}
             return JsonResponse(response)
 
     def post(self, request):

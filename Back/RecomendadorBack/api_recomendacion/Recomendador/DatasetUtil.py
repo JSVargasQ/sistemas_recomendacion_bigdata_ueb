@@ -4,8 +4,7 @@ import pandas as pd
 
 
 def getPandasDataFrame():
-  df = pd.read_csv("pruebaGeneral.csv",delimiter=";")
-  df = df.drop('Unnamed: 0', axis=1)
+  df = pd.read_csv("api_recomendacion/Recomendador/pruebaGeneral.csv",delimiter=";")
   return df
 
 
