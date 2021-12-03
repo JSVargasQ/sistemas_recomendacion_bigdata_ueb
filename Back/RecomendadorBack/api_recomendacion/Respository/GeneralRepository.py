@@ -21,7 +21,8 @@ def indexPeliculas():
   return (id_peliculas)
 
 
-
+def cantidad_usuarios():
+  return len(list(UsuariosSr.objects.values()))
 
 def generarMatrizColaborativa():
   usuarios_ids=listarUsuario()

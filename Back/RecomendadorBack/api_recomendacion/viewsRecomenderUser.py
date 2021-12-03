@@ -3,6 +3,7 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 import api_recomendacion.Recomendador.calificacionUtilRepo   as caliUtil
+import api_recomendacion.Recomendador.filterUserUser as fuu
 from api_recomendacion.Recomendador import CargarDataSet, FiltradoColaborativoUU
 from  api_recomendacion.Recomendador.ContenteBased2 import ContentBaseRecommender
 from api_recomendacion.modelsDTO.models import CalificacionesDTO
@@ -21,7 +22,8 @@ class ContenidoUsuarioUsuario(View):
 
     def get(self,request,cod_usuario=0):
       matriz=GeneralRepository.generarMatrizColaborativa()
-
+      filtroUU= fuu.RecommendationUserUser(matriz,GeneralRepository.cantidad_usuarios(),cod_usuario)
+      print(filtroUU.predecirJuegosPorUsuario())
       return JsonResponse({"hola":cod_usuario})
 
     def post(self, request):

@@ -8,6 +8,8 @@ def cargarDatos():
   df=dataUtil.getPandasDataFrame().sample(10)
   df['Num'] = df.index.astype(str)
   return df.to_dict('r')
+
+
   # file = "api_recomendacion/Recomendador/DatasetFinal.csv"
   # df = pd.read_csv(file,sep=';', error_bad_lines=False, index_col=0)
   # c =df.to_csv('api_recomendacion/Recomendador/datosJuegosFinal.csv')
