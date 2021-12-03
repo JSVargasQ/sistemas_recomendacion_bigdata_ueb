@@ -89,6 +89,7 @@ class PeliculasView(View):
 
     def post(self, request):
       jd = json.loads(request.body)
+      print(jd)
       cod_usuario=jd.get("usuario")
       clase=ContentBaseRecommender()
       listCalifaciones = []
@@ -158,34 +159,10 @@ class CalifacionView(View):
 
     def get(self, request, cod_usuario=0):
       #buscar por codigo de calificacion
-<<<<<<< Updated upstream
-        if (cod_usuario == 0):
-            calificacion = list(Calificaciones.objects.values())
-            if (len(calificacion) > 0):
-                response = {'Calificación': calificacion,
-                            'message': 'Success'}
-            else:
-                response = {
-                    'message': 'No hay calificaciones'}
-            return JsonResponse(response)
-        else:
-            calificacion = caliUtil.calificacionBuenasXusuario(cod_usuario)
-            dic=[]
-            cs = DatasetUtil.getPandasDataFrame()
-            for f in calificacion:
-              nom = cs[cs['num'] == f.cod_videojuego]['Name']
-
-
-              j = nom.to_dict()
-            response = {'Calificación': j,
-                        'message': 'Success'}
-            return JsonResponse(response)
-=======
       codigos=caliUtil2.devolverCodigosGusto(cod_usuario)
       responder=GeneralRepository.devolverJuegosDict(codigos)
       return JsonResponse({"message":responder})
 
->>>>>>> Stashed changes
 
     def post(self, request):
         jd = json.loads(request.body)
