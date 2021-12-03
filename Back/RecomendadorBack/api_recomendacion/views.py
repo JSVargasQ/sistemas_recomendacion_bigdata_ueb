@@ -106,6 +106,27 @@ class calificacionesBDView(View):
 
 
 
+class loginView(View):
+  @method_decorator(csrf_exempt)
+  def dispatch(self, request, *args, **kwargs):
+    return super().dispatch(request, *args, **kwargs)
+
+  def post(self, request):
+    jd = json.loads(request.body)
+    usuarioList = list(UsuariosSr.objects.filter(correo=jd['correo']).values())
+    if (len(usuarioList) > 0):
+      usuario = UsuariosSr.objects.get(correo=jd['correo'])
+      if(usuario.password == jd['password']):
+        response = {'cod_usuario': usuario.cod_usuario,
+                  'status': 'Success'}
+      else:
+        response = {'status': 'Nombre de usuario o contraseña incorrecto'}
+    else:
+      response = {'status': 'Nombre de usuario o contraseña incorrecto'}
+
+    return JsonResponse(response)
+
+
 class CalifacionView(View):
     @method_decorator(csrf_exempt)
     def dispatch(self, request, *args, **kwargs):

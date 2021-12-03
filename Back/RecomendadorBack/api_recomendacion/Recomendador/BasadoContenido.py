@@ -10,7 +10,7 @@ from sklearn.metrics.pairwise import linear_kernel
 from pandas import read_excel
 import pandas as pd
 
-
+"""
 my_sheet = 'respuesta' # change it to your sheet name, you can find your sheet name at the bottom left of your excel file
 file_name = 'prueba.xlsx' # change it to the name of your excel file
 df = read_excel(file_name, sheet_name = my_sheet)
@@ -49,3 +49,4 @@ def recommend_movies_based_on_plot(index1):
 print(df.info)
 
 print(recommend_movies_based_on_plot(57).tolist()[:5])
+"""
