@@ -5,16 +5,22 @@
     <div class="container mx-auto px-4">
       <div class="mb-8">
         <div class="text-2xl font-semibold text-center">
-          Estos son los vieojuegos que te han gustado.
+          Estos son los videojuegos que te han gustado.
         </div>
       </div>
+      <sa-spinner-diamond [size]="50" [thickness]="100" [speed]="100" color="#dd0031" secondaryColor="rgba(24, 24, 24, 0.1)" ></sa-spinner-diamond>
       <div class="flex flex-wrap">
+        <ng-container *ngIf="myListFavoriteVideogames.length === 0">
+          <div class="flex text-2xl font-medium text-center mt-10 mx-auto">
+            No hay gustos relacionados. Interactua con la plataforma para adquirir gustos.
+          </div>
+        </ng-container>
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 my-12 py-6 px-4"
              *ngFor="let videogame of myListFavoriteVideogames; let index = index">
           <div class="px-6">
             <img
               alt="..."
-              src="./assets/img/team-1-800x800.jpg"
+              src="./assets/img/control.png"
               class="border-solid border-4 cursor-pointer shadow-lg rounded-full max-w-full mx-auto"
               style="max-width: 120px;"
             />

@@ -14,7 +14,7 @@
           <div class="px-6">
             <img
               alt="..."
-              src="./assets/img/team-1-800x800.jpg"
+              src="./assets/img/control.png"
               class="border-solid border-4 cursor-pointer shadow-lg rounded-lg max-w-full mx-auto"
               style="max-width: 120px;"
             />
@@ -25,21 +25,33 @@
               <h5 class="text-xl font-bold">{{videogame.Year_of_Release | number: '1.0-0'}}</h5>
               <div class="mt-6">
                 <button
-                  [ngClass]="{'bg-red-600 text-white': videogame.Puntuacion === 1,'bg-gray-100 btn-action-dislike': videogame.Puntuacion !== 1 }"
+                  [ngClass]="{
+                  'bg-blue-600 text-white': videogame.puntuacion === 1,
+                  'bg-gray-100 btn-action-dislike': videogame.puntuacion !== 1
+                  }"
                   class=" text-black w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                  (click)="likeVideogame(index)"
+                  (click)="likeVideogame(videogame, index)"
                 >
                   <i
-                    [ngClass]="{fas: videogame.Puntuacion === -1, far: videogame.Puntuacion !== -1}"
+                    [ngClass]="{
+                    fas: videogame.puntuacion === 1,
+                    far: videogame.puntuacion !== 1
+                    }"
                     class="fa-thumbs-up"></i></button
                 >
                 <button
-                  [ngClass]="{'bg-red-600 text-white': videogame.Puntuacion === -1,'bg-gray-100 btn-action-dislike': videogame.Puntuacion !== -1 }"
+                  [ngClass]="{
+                  'bg-red-600 text-white': videogame.puntuacion === -1,
+                  'bg-gray-100 btn-action-dislike': videogame.puntuacion !== -1
+                  }"
                   class=" text-black w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
-                  (click)="dislikeVideogame(index)"
+                  (click)="dislikeVideogame(videogame, index)"
                 >
                   <i
-                    [ngClass]="{fas: videogame.Puntuacion === -1, far: videogame.Puntuacion !== -1}"
+                    [ngClass]="{
+                    fas: videogame.puntuacion === -1,
+                    far: videogame.puntuacion !== -1
+                    }"
                     class="fa-thumbs-down"></i></button
                 >
               </div>

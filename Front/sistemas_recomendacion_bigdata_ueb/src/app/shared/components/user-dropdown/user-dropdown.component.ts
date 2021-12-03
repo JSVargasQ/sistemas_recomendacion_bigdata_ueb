@@ -39,8 +39,9 @@ export class UserDropdownComponent implements AfterViewInit {
   }
 
   signOut(): void {
-    console.log('cerrando...');
-    this._authService.clearSessionData();
     this._router.navigate(['/auth/signin']);
+    console.log('cerrando...');
+
+    this._authService.clearSessionData();
   }
 }

@@ -54,10 +54,24 @@ export class TrendingComponent implements OnInit {
     console.log(videogame);
     if (this.myListFavoriteVideogames[index].isSelected === true) {
       this.myListFavoriteVideogames[index].isSelected = false;
-      this.myListFavoriteVideogames[index].Puntuacion = 0;
+      this.myListFavoriteVideogames[index].puntuacion = 0;
+      this._dashboardService.rateVideogame(
+        this._authService.userLocalStorage.cod_usuario,
+        videogame.Num,
+        0
+      ).subscribe((response) => {
+        console.log('response', response);
+      });
     } else {
       this.myListFavoriteVideogames[index].isSelected = true
-      this.myListFavoriteVideogames[index].Puntuacion = 1;
+      this.myListFavoriteVideogames[index].puntuacion = 1;
+      this._dashboardService.rateVideogame(
+        this._authService.userLocalStorage.cod_usuario,
+        videogame.Num,
+        1
+      ).subscribe((response) => {
+        console.log('response', response);
+      });
     }
     console.log(this.myListFavoriteVideogames[index]);
     console.log(videogame);
@@ -65,11 +79,25 @@ export class TrendingComponent implements OnInit {
 
   dislikeVideogame(videogame: any, index: any): void {
     console.log(videogame);
-    if (this.myListFavoriteVideogames[index].Puntuacion === -1) {
-      this.myListFavoriteVideogames[index].Puntuacion = 0;
+    if (this.myListFavoriteVideogames[index].puntuacion === -1) {
+      this.myListFavoriteVideogames[index].puntuacion = 0;
+      this._dashboardService.rateVideogame(
+        this._authService.userLocalStorage.cod_usuario,
+        videogame.Num,
+        0
+      ).subscribe((response) => {
+        console.log('response', response);
+      });
     } else {
-      this.myListFavoriteVideogames[index].Puntuacion = -1;
+      this.myListFavoriteVideogames[index].puntuacion = -1;
       this.myListFavoriteVideogames[index].isSelected = false;
+      this._dashboardService.rateVideogame(
+        this._authService.userLocalStorage.cod_usuario,
+        videogame.Num,
+        -1
+      ).subscribe((response) => {
+        console.log('response', response);
+      });
     }
     console.log(videogame);
   }

@@ -48,20 +48,20 @@ export class RegisterComponent implements OnInit {
   // ----------------------------------------------------------------------------------------------------
 
   registerUser(): void {
-    const user: User = this.formRegister.value;
-    console.log(user);
+    this.formRegister.disable();
 
+    const user: User = this.formRegister.value;
     user.fecha_nacimiento = user.fecha_nacimiento.split('/').join('-') ;
 
     this._authService.registerUser(user).subscribe((response) => {
 
       console.log('success:', response);
 
-      if ( response && response.success === true) {
+      if ( response && response.status === 'Success') {
         this._router.navigate(['./auth/signin'])
       }
 
-
+      this.formRegister.enable();
 
       }, (error) => {
         console.error(error, 'Ha ocurrido un error.');

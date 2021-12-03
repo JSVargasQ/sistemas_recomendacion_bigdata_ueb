@@ -29,7 +29,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.karma.karma_node_package_dir" value="$PROJECT_DIR$/../../node_modules/@angular/cli" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/app/dashboard" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/assets/img" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs.protractor.protractor_package" value="$PROJECT_DIR$/../../node_modules/protractor" />
@@ -39,11 +39,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Proyectos\Angular\sistemas_recomendacion_bigdata_ueb\Front\sistemas_recomendacion_bigdata_ueb\src\assets\img" />
       <recent name="D:\Proyectos\Angular\sistemas_recomendacion_bigdata_ueb\Front\sistemas_recomendacion_bigdata_ueb\src\app\dashboard" />
       <recent name="D:\Proyectos\Angular\sistemas_recomendacion_bigdata_ueb\Front\sistemas_recomendacion_bigdata_ueb\src\app\dashboard\home" />
       <recent name="D:\Proyectos\Angular\sistemas_recomendacion_bigdata_ueb\Front\sistemas_recomendacion_bigdata_ueb\src\app\auth\login" />
       <recent name="D:\Proyectos\Angular\sistemas_recomendacion_bigdata_ueb\Front\sistemas_recomendacion_bigdata_ueb\src\app\auth" />
-      <recent name="D:\Proyectos\Angular\sistemas_recomendacion_bigdata_ueb\Front\sistemas_recomendacion_bigdata_ueb\src\assets\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Proyectos\Angular\sistemas_recomendacion_bigdata_ueb\Front\sistemas_recomendacion_bigdata_ueb\src\app\auth" />
@@ -89,7 +89,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1638365344055</updated>
-      <workItem from="1638365345951" duration="46413000" />
+      <workItem from="1638365345951" duration="53657000" />
     </task>
     <servers />
   </component>

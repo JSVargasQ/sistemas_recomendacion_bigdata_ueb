@@ -43,7 +43,11 @@ export class LikesComponent implements OnInit {
     this._dashboardService.getMyFavoriteVideogames(this._authService.userLocalStorage.cod_usuario).subscribe((response) => {
         console.log('success:', response);
 
-        this.myListFavoriteVideogames = response.message;
+        if ((typeof response.message) === 'object') {
+          this.myListFavoriteVideogames = response.message;
+        } else {
+          this.myListFavoriteVideogames = [];
+        }
       }, (error) => {
         console.error(error, 'Ha ocurrido un error.');
       }

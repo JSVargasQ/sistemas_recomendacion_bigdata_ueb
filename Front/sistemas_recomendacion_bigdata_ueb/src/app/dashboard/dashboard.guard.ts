@@ -29,6 +29,7 @@ export class DashboardGuard implements CanActivate {
   }
 
   private _check(): Observable<boolean> {
+    console.log('verify...');
     const status = this.checkAuthStatus();
 
     if (!status) {
