@@ -10,7 +10,28 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="/api_recomendacion/Recomendador/datosJuegosFinal.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/api_recomendacion/Recomendador/datosJuegosNuevos.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="/api_recomendacion/Recomendador/pruebaGeneral.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value=";" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/media/pruebaGeneral.csv">
           <value>
             <Attribute>
               <option name="separator" value=";" />
