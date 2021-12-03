@@ -5,6 +5,13 @@ from api_recomendacion.models import Calificaciones
 def buscarCalificacionPorUsuario(cod_usuario):
    return Calificaciones.objects.raw('Select * from calificaciones where cod_usuario = %s',[cod_usuario])
 
+
+def devolverCodigosGusto(cod_usuario):
+  respuesta=[]
+  for i in Calificaciones.objects.raw('Select * from calificaciones where cod_usuario = %s and puntuacion = %s',[cod_usuario,1]):
+    respuesta.append(i.cod_videojuego)
+  return respuesta
+
 def CalificacionesNoGustanPorUsuario(cod_usuario):
   return Calificaciones.objects.raw('Select * from calificaciones where cod_usuario = %s and puntuacion = %s',[cod_usuario,-1])
 

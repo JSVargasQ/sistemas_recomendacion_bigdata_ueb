@@ -16,6 +16,16 @@ def prueba():
   pass
 
 
+def devolverJuegosDict(index_games):
+  df=dataSet.getPandasDataFrame()
+  if(len(index_games)<1):
+    return ("Por el momento no te podemos recomendar videojuegos, pronto podras ver recomendaciones")
+  df['Num'] = df.index.astype(str)
+  devolver=df.iloc[index_games]
+  if(len(devolver.index)>16):
+    return df.iloc[index_games].sample(16).to_dict('r')
+  return df.iloc[index_games].to_dict('r')
+
 def indexPeliculas():
   id_peliculas = dataSet.getPandasDataFrame().index.values.tolist()
   return (id_peliculas)
