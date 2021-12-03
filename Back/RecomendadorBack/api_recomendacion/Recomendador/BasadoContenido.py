@@ -45,7 +45,6 @@ def recommend_movies_based_on_plot(index1):
     movie_indices = [i[0] for i in similarity_score]
     return (df["title"].iloc[movie_indices])
 
-
 print(df.info)
 
 print(recommend_movies_based_on_plot(57).tolist()[:5])
