@@ -3,6 +3,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 import api_recomendacion.Recomendador.DatasetUtil
 import pandas as pd
+import json
 
 from api_recomendacion.Recomendador import DatasetUtil
 
@@ -37,10 +38,17 @@ class ContentBaseRecommender:
     return (self.df["Name"].iloc[index_games]).tolist()
 
   def devolverJuegosJson(self,index_games):
-    return self.df.iloc[index_games].to_json(orient='index')
+    self.df['num']= self.df['referencia']
+    return self.df.to_json(orient = 'records')
+#    return self.df.reset_index().to_json(orient='records')
+  #  json_list = json.loads(json.dumps(list(self.df.iloc[index_games].T.to_dict().values())))
+ #   return self.df.to_json(orient = 'records')
+#    return self.df.iloc[index_games].to_json(orient='records')
 
   def devolverJuegosDict(self,index_games):
-    return self.df.iloc[index_games].to_dict('index')
+    self.df['Num'] = self.df['referencia'].astype(str)
+    self.df = self.df.drop('referencia', axis=1)
+    return self.df.iloc[index_games].to_dict('r')
 
   def mappingAndSimilarity(self):
     global mapping,dfm,similarity_matrix,overview_matrix,tfidf
@@ -50,7 +58,7 @@ class ContentBaseRecommender:
     similarity_matrix = linear_kernel(overview_matrix,overview_matrix)
     mapping = pd.Series(self.df.index,index = self.df["Name"])
 
-  def recomendarPorJuego(self,index1,cantidad=5):
+  def recomendarPorJuego(self,index1,cantidad=5,):
     global mapping,dfm,similarity_matrix,overview_matrix,tfidf
     game_Index = index1
     similarity_score = list(enumerate(similarity_matrix[game_Index]))
@@ -59,8 +67,17 @@ class ContentBaseRecommender:
     index_games = [i[0] for i in similarity_score]
     return index_games
 
+  def organizarIndex(self):
+    self.df['referencia'] = self.df.index
+    self.df = self.df.reset_index(drop=True)
+    for i in range(len(self.JuegosBase)):
+      id_original=self.JuegosBase[i];
+      self.JuegosBase[i]=self.df.index[self.df['referencia'] == id_original].tolist()[0]
+
+
   def recomendarTotalidadJuegos(self):
     self.df=self.df.drop(self.df.index[self.juegosNoGustan])
+    self.organizarIndex()
     self.juegosRecomendados=[]
     self.vectorizarPalabras()
     self.mappingAndSimilarity()

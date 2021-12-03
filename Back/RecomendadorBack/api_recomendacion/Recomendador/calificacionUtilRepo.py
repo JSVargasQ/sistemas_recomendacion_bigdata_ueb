@@ -12,6 +12,14 @@ def CalificacionesNoGustanPorUsuario(cod_usuario):
 def CalificacionesGustanPorUsuario(cod_usuario):
   return Calificaciones.objects.raw('Select * from calificaciones where cod_usuario = %s and puntuacion = %s',[cod_usuario,1])
 
+def dictCalificaciones(cod_usuario):
+  id_juegosCalificados={}
+
+  for calificacionesUsuario in buscarCalificacionPorUsuario(cod_usuario):
+    juego=calificacionesUsuario.cod_videojuego
+    id_juegosCalificados[juego]=calificacionesUsuario.puntuacion
+  return id_juegosCalificados
+
 def juegosCalificados(cod_usuario,CalificacionesGuardar:list):
   id_juegosCalificados={}
 
