@@ -17,3 +17,4 @@ Back/RecomendadorBack/.idea/csv-plugin.xml
 Back/RecomendadorBack/api_recomendacion/Recomendador/BasadoContenido.py
 Back/RecomendadorBack/api_recomendacion/Recomendador/DatasetFinal.csv
 *.xml
+Back/RecomendadorBack/.idea/misc.xml
