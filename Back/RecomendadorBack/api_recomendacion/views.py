@@ -4,14 +4,20 @@ from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import api_recomendacion.Recomendador.calificacionValidacion   as caliUtil
 from api_recomendacion.Recomendador import CargarDataSet, BasadoContenido, FiltradoColaborativoUU, DatasetUtil
 
 =======
+=======
+>>>>>>> Stashed changes
 import api_recomendacion.Recomendador.calificacionUtilRepo   as caliUtil
 from api_recomendacion.Recomendador import CargarDataSet, FiltradoColaborativoUU
 from  api_recomendacion.Recomendador.ContenteBased2 import ContentBaseRecommender
 from api_recomendacion.modelsDTO.models import CalificacionesDTO
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 from django.urls import reverse
 import json
@@ -107,11 +113,19 @@ class PeliculasView(View):
       # se agregan las calificaciones que el usuario ha calificado como buenas
       for calificaciones in resultadoGustar:
         clase.agregarGustan(calificaciones.cod_videojuego)
+<<<<<<< Updated upstream
 
       #se ejecuta el recomendador por contenido del usuario de acuerdo a lo que le gusta y lo que no le gusta
       #print(clase.recomendarTotalidadJuegos())
 
 
+=======
+
+      #se ejecuta el recomendador por contenido del usuario de acuerdo a lo que le gusta y lo que no le gusta
+      #print(clase.recomendarTotalidadJuegos())
+
+
+>>>>>>> Stashed changes
       return JsonResponse(clase.recomendarTotalidadJuegos())
     """  nombresJuegos = jd['juegos']
       array = []
