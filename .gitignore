@@ -19,3 +19,4 @@ Back/RecomendadorBack/api_recomendacion/Recomendador/DatasetFinal.csv
 *.xml
 Back/RecomendadorBack/.idea/misc.xml
 *.pyc
+*.pyc
