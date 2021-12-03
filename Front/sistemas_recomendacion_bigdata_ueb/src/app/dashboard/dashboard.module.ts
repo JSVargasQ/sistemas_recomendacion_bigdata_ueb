@@ -4,6 +4,7 @@ import {DashboardRoutingModule} from './dashboard-routing.module';
 
 import {SharedModule} from '../shared/shared.module';
 import {HomeComponent} from './home/home.component';
+import {DashboardService} from './dashboard.service';
 
 
 @NgModule({
@@ -14,6 +15,9 @@ import {HomeComponent} from './home/home.component';
     SharedModule,
     DashboardRoutingModule,
   ],
+  providers: [
+    DashboardService
+  ]
 })
 export class DashboardModule {
 }
