@@ -1,4 +1,15 @@
 node_modules/
+<<<<<<< Updated upstream
 Back/RecomendadorBack/venv/*
 back/recomendadorBack/.idea
 back/.idea
+=======
+Back/recomendadorBack/.idea
+Back/.idea
+
+Back/RecomendadorBack/.idea/misc.xml
+Back/RecomendadorBack/.idea/RecomendadorBack.iml
+>>>>>>> Stashed changes
+Back/RecomendadorBack/.idea/misc.xml
+Back/RecomendadorBack/.idea/RecomendadorBack.iml
+*.iml
