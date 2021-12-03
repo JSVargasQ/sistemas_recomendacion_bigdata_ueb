@@ -1,5 +1,5 @@
 from django.urls import path
-from api_recomendacion.views import UsuarioView, CalifacionView, PeliculasView, calificacionesBDView, loginView
+from api_recomendacion.views import UsuarioView, CalifacionView, PeliculasView, calificacionesBDView, loginView,RecomendacionContenido
 
 urlpatterns=[
     path('usuarios/',UsuarioView.as_view(), name='usuario'),
@@ -8,5 +8,6 @@ urlpatterns=[
     path('calificaciones/<int:cod_usuario>', CalifacionView.as_view(), name='califiacionesLista'),
     path('peliculas/',PeliculasView.as_view(),name='peliculas'),
     path('bd/', calificacionesBDView.as_view(), name='bd'),
-    path('login/', loginView.as_view(), name='bd')
+    path('login/', loginView.as_view(), name='bd'),
+    path('recomendacionContenido/',RecomendacionContenido.as_view(),name="recomendacionContenido")
 ]
