@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views import View
 from django.views.decorators.csrf import csrf_exempt
-
+import api_recomendacion.Recomendador.calificacionValidacion   as caliUtil
 from api_recomendacion.Recomendador import CargarDataSet, BasadoContenido, FiltradoColaborativoUU
 
 from django.urls import reverse
@@ -84,15 +84,23 @@ class PeliculasView(View):
 
     def post(self, request):
       jd = json.loads(request.body)
-      nombresJuegos = jd['juegos']
+      print("el usuario es -> ",jd.get("usuario"))
+      resultado=caliUtil.buscarCalificacionPorUsuario(jd.get("usuario"))
+      for calificaciones in resultado:
+        print("el videojuego Calificado es ",calificaciones.cod_videojuego)
+        print("La calificación es ", calificaciones.puntuacion)
+      for juego in jd.get("juegos"):
+        print(juego)
+
+      return JsonResponse({"hola":"xd"})
+    """  nombresJuegos = jd['juegos']
       array = []
       for i in nombresJuegos:
         array.append(i)
       rta = BasadoContenido.generarRecomendacion(array)
       js = CargarDataSet.devolverInformacionRecomendacion(rta)
+      """
 
-
-      return JsonResponse(js)
 
 class calificacionesBDView(View):
   @method_decorator(csrf_exempt)
