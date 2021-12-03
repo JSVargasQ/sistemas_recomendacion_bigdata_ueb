@@ -169,12 +169,10 @@ class CalifacionView(View):
             dic=[]
             cs = DatasetUtil.getPandasDataFrame()
             for f in calificacion:
-              nom = cs[cs['Num'] == f.cod_videojuego]['Name']
-              nom = nom.to_json()
+              nom = cs[cs['num'] == f.cod_videojuego]['Name']
 
-              dic.append({'cod_videojuego':f.cod_videojuego, 'puntuacion':f.puntuacion, 'nombre': nom})
 
-            j = json.dumps(dic)
+              j = nom.to_dict()
             response = {'Calificación': j,
                         'message': 'Success'}
             return JsonResponse(response)
