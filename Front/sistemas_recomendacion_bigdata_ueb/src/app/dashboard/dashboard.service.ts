@@ -29,9 +29,31 @@ export class DashboardService {
   // @ Public methods
   // ----------------------------------------------------------------------------------------------------
 
-  getRecommenderVideogames(): Observable<any> {
+  getRandomVideogames(): Observable<any> {
     return this._http.get<any>(this.API_URL + 'peliculas/');
   }
 
+  getRecommendationContent(body): Observable<any> {
+    return this._http.post<any>(this.API_URL + 'peliculas/', body);
+  }
+
+  getRecommendationUser(codUsuario: number): Observable<any> {
+    return this._http.get<any>(this.API_URL + 'recomendacionUsuario/' + codUsuario);
+  }
+
+  getMyFavoriteVideogames(codUsuario: number): Observable<any> {
+    return this._http.get<any>(this.API_URL + 'calificaciones/' + codUsuario);
+  }
+
+  rateVideogame(codUser: number, codVideogame: number, puntuacion: number): Observable<any> {
+    return this._http.post<any>(this.API_URL + 'peliculas/',
+      {
+        usuario: codUser,
+        juegos: [{
+          Num: codVideogame,
+          Puntuacion: puntuacion
+        }]
+      });
+  }
 
 }

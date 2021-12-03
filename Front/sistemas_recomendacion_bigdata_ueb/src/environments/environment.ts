@@ -4,7 +4,9 @@
 
 export const environment = {
 
-  apiUrl: 'http://127.0.0.1:8000/api_recomendacion/',
+  // apiUrl: 'http://127.0.0.1:8000/api_recomendacion/',
+   apiUrl: 'https://40fd-190-27-33-234.ngrok.io/api_recomendacion/',
+
 
   production: false
 };

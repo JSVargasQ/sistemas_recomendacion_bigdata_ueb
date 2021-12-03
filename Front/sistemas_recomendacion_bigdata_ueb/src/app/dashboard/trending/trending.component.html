@@ -5,20 +5,18 @@
     <div class="container mx-auto px-4">
       <div class="mb-8">
         <div class="text-2xl font-semibold text-center">
-          Seleccione los videojuegos que te gustan, o aquellos que no.
+          Conoce las tendencias actuales.
         </div>
       </div>
       <div class="flex flex-wrap">
         <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 my-12 py-6 px-4"
-             *ngFor="let videogame of listVideogames; let index = index">
+             *ngFor="let videogame of myListFavoriteVideogames; let index = index">
           <div class="px-6">
             <img
               alt="..."
               src="./assets/img/team-1-800x800.jpg"
-              class="img-selected border-solid border-4 cursor-pointer shadow-lg rounded-full max-w-full mx-auto"
-              [ngClass]="{'img-selected': videogame.isSelected === true}"
+              class="border-solid border-4 cursor-pointer shadow-lg rounded-lg max-w-full mx-auto"
               style="max-width: 120px;"
-              (click)="likeVideogame(index)"
             />
             <div class="pt-6 text-center">
               <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
@@ -26,7 +24,15 @@
               </p>
               <h5 class="text-xl font-bold">{{videogame.Year_of_Release | number: '1.0-0'}}</h5>
               <div class="mt-6">
-
+                <button
+                  [ngClass]="{'bg-red-600 text-white': videogame.Puntuacion === 1,'bg-gray-100 btn-action-dislike': videogame.Puntuacion !== 1 }"
+                  class=" text-black w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                  (click)="likeVideogame(index)"
+                >
+                  <i
+                    [ngClass]="{fas: videogame.Puntuacion === -1, far: videogame.Puntuacion !== -1}"
+                    class="fa-thumbs-up"></i></button
+                >
                 <button
                   [ngClass]="{'bg-red-600 text-white': videogame.Puntuacion === -1,'bg-gray-100 btn-action-dislike': videogame.Puntuacion !== -1 }"
                   class=" text-black w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
@@ -40,29 +46,7 @@
             </div>
           </div>
         </div>
-
       </div>
-
-      <div class="flex w-4/8 mx-auto mt-8">
-        <button
-          class="bg-blue-600 text-white active:bg-gray-700 text-sm font-bold uppercase px-8 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-          type="button"
-          style="transition: all 0.15s ease 0s;"
-          (click)="recommenderMore()"
-        >
-          ¡Quiero ver mas juegos!
-        </button>
-
-        <button
-          class="bg-red-500 text-white active:bg-gray-700 text-sm font-bold uppercase px-8 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-          type="button"
-          style="transition: all 0.15s ease 0s;"
-          (click)="getVideoGames()"
-        >
-          Aleatorio
-        </button>
-      </div>
-
     </div>
   </section>
 
