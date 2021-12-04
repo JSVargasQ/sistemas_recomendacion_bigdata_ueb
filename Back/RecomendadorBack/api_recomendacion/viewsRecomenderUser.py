@@ -24,8 +24,7 @@ class ContenidoUsuarioUsuario(View):
       matriz=GeneralRepository.generarMatrizColaborativa()
       filtroUU= fuu.RecommendationUserUser(matriz,GeneralRepository.cantidad_usuarios(),cod_usuario)
       listaJuegos=list(filtroUU.predecirJuegosPorUsuario().keys())
-      GeneralRepository.devolverJuegosDictGustoNoGusto(cod_usuario)
-      gustos=GeneralRepository.devolverJuegosDictGustoNoGusto()
+      gustos=caliUtil.devolverDictGustoNoGusto(cod_usuario)
       responder=GeneralRepository.devolverJuegosDictGusto(listaJuegos,gustos)
       return JsonResponse({"message":responder})
 

@@ -6,6 +6,8 @@ def buscarCalificacionPorUsuario(cod_usuario):
    return Calificaciones.objects.raw('Select * from calificaciones where cod_usuario = %s',[cod_usuario])
 
 
+
+
 def devolverCodigosGusto(cod_usuario):
   respuesta=[]
   for i in Calificaciones.objects.raw('Select * from calificaciones where cod_usuario = %s and puntuacion = %s',[cod_usuario,1]):
@@ -56,3 +58,10 @@ def guardarCalificacionUsuario(i:Calificaciones):
   cod_videojuego=i.cod_videojuego,
   puntuacion=i.puntuacion
   )
+
+
+def devolverDictGustoNoGusto(cod_usuario):
+  devolver={}
+  for i in Calificaciones.objects.raw('Select * from calificaciones where cod_usuario = %s',[cod_usuario]):
+    devolver[i.cod_videojuego]=i.puntuacion
+  return devolver

@@ -73,14 +73,19 @@ class ContentBaseRecommender:
     return index_games
 
   def organizarIndex(self):
+    print((self.df.index))
     self.df['referencia'] = self.df.index
     self.df = self.df.reset_index(drop=True)
     for i in range(len(self.JuegosBase)):
-      id_original=self.JuegosBase[i];
+      print("la variable es i ---->", self.JuegosBase[i])
+      id_original=self.JuegosBase[i]
       self.JuegosBase[i]=self.df.index[self.df['referencia'] == id_original].tolist()[0]
 
 
   def recomendarTotalidadJuegos(self):
+    for i in self.JuegosBase:
+      if i in self.juegosNoGustan:
+        self.juegosNoGustan.remove(i)
     self.df=self.df.drop(self.df.index[self.juegosNoGustan])
     self.organizarIndex()
     self.juegosRecomendados=[]
